@@ -4,7 +4,7 @@
         <!-- TITLE -->
         <div class="row">
             <label style="padding-right: 49px">Title: </label>
-            <input type="text" v-model="title" required />
+            <input type="text" v-model="title" />
         </div>
         <!-- DESCRIPTION -->
         <div class="row">
