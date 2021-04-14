@@ -21,6 +21,7 @@
 <script>
 // import { mapGetters } from "vuex";
 import Number from "./Number.vue";
+import { eventBus } from "../../main.js";
 
 export default {
     data() {
@@ -50,6 +51,7 @@ export default {
             }
 
             // emit
+            eventBus.$emit("numberClicked", number);
         },
     },
     components: {

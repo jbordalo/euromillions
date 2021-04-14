@@ -7,6 +7,8 @@ import store from './store/store';
 
 Vue.use(VueRouter);
 
+export const eventBus = new Vue();
+
 const router = new VueRouter({
   mode: 'history',
   routes
@@ -18,3 +20,5 @@ new Vue({
   store,
   render: h => h(App)
 })
+
+

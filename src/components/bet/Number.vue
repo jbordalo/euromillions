@@ -7,11 +7,20 @@
 
 <script>
 // import { mapGetters } from "vuex";
+import { eventBus } from "../../main.js";
 
 export default {
     props: ["number"],
     data() {
         return { selected: false };
+    },
+    created() {
+        eventBus.$on("numberClicked", (id) => {
+            // Ensure message is for us
+            if (id != this.number) return;
+
+            this.selected = !this.selected;
+        });
     },
     // computed: {
     //     ...mapGetters({ stocks: "stockPortfolio" }),
@@ -21,7 +30,7 @@ export default {
 
 <style scoped>
 div {
-    border: 1px solid black;
+    border: 2px solid black;
     margin-bottom: 5px;
 }
 
@@ -30,6 +39,6 @@ div:hover {
 }
 
 .selected {
-    border: 1px solid red;
+    border: 2px solid red;
 }
 </style>
