@@ -10,7 +10,7 @@ Vue.use(VueRouter);
 export const eventBus = new Vue();
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: 'hash',
   routes
 });
 
