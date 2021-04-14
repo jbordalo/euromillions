@@ -14,12 +14,16 @@
             <div
                 class="circle number"
                 v-for="number in game.numbers"
-                :key="number"
+                :key="'Number' + number"
             >
                 {{ number }}
             </div>
             <br />
-            <div class="circle star" v-for="star in game.stars" :key="star">
+            <div
+                class="circle star"
+                v-for="star in game.stars"
+                :key="'Star' + star"
+            >
                 {{ star }}
             </div>
 
