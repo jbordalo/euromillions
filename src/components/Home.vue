@@ -7,11 +7,5 @@
 </template>
 
 <script>
-export default {
-    computed: {
-        // games() {
-        //     return this.$store.getters.games;
-        // },
-    },
-};
+export default {};
 </script>

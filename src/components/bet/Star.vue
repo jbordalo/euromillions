@@ -1,6 +1,6 @@
 <template>
     <div :class="{ selected }">
-        <h1>{{ number }}</h1>
+        <h1>{{ star }}</h1>
     </div>
 </template>
 
@@ -8,14 +8,14 @@
 import { eventBus } from "../../main.js";
 
 export default {
-    props: ["number"],
+    props: ["star"],
     data() {
         return { selected: false };
     },
     created() {
-        eventBus.$on("numberClicked", (id) => {
+        eventBus.$on("starClicked", (id) => {
             // Ensure message is for us
-            if (id != this.number) return;
+            if (id != this.star) return;
 
             this.selected = !this.selected;
         });
@@ -29,7 +29,7 @@ div {
     width: 50px;
     text-align: center;
     border: 2px solid black;
-    background-color: rgb(253, 209, 216);
+    background-color: rgb(243, 195, 150);
     margin-bottom: 5px;
 }
 
@@ -38,15 +38,15 @@ h1 {
 }
 
 div:hover {
-    background-color: rgb(248, 156, 171);
+    background-color: rgb(246, 167, 93);
 }
 
 .selected {
-    border: 2px solid red;
-    background-color: rgb(248, 156, 171);
+    border: 2px solid rgb(255, 136, 0);
+    background-color: rgb(246, 167, 93);
 }
 
 .selected:hover {
-    background-color: rgb(253, 209, 216);
+    background-color: rgb(243, 195, 150);
 }
 </style>

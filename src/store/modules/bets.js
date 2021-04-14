@@ -1,5 +1,5 @@
 const state = {
-	games: [],
+	games: [{ title: 'My First Game', description: 'Test Game', numbers: [1, 2, 3, 4, 5], stars: [6, 7] }],
 }
 
 const getters = {
@@ -10,19 +10,21 @@ const getters = {
 
 const mutations = {
 	'ADD_GAME'(state, game) {
-		const record = state.stocks.find(element => element.id == stockId);
-
-		// TODO add checks
-
-		// { gameId, gameTitle, gameNumbers, gameStars }
+		// { id, title, description, numbers, stars }
 		state.games.push(game);
 	},
 }
 
 const actions = {
-	addGame: ({ commit }, order) => {
-		console.log("log: buying stock");
-		commit('ADD_GAME', order);
+	addGame: ({ commit }, game) => {
+		console.log("log: saving game");
+		// { id, title, description, numbers, stars }
+		const gameToAdd = {
+			id: state.games.length,
+			...game,
+		}
+		console.log(gameToAdd);
+		commit('ADD_GAME', gameToAdd);
 	}
 }
 

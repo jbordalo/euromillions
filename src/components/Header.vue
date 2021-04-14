@@ -12,6 +12,9 @@
                     <router-link to="/bet" activeClass="active" tag="li"
                         ><a>Bet</a></router-link
                     >
+                    <router-link to="/games" activeClass="active" tag="li"
+                        ><a>Games</a></router-link
+                    >
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
