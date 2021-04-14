@@ -1,13 +1,9 @@
 <template>
     <div class="container">
-        <div class="row">
-            Numbers: {{ numbers }} <br />Stars: {{ stars }}<br />Title:
-            {{ title }}
-        </div>
         <br />
         <!-- TITLE -->
         <div class="row">
-            <label>Title: </label>
+            <label style="padding-right: 49px">Title: </label>
             <input type="text" v-model="title" required />
         </div>
         <!-- DESCRIPTION -->
@@ -15,13 +11,14 @@
             <label>Description: </label>
             <input type="text" v-model="description" />
         </div>
-        <br /><br />
         <!-- NUMBERS -->
-        <div class="row" v-for="row in 5" :key="row">
+        <h2>Numbers</h2>
+        <br />
+        <div class="row" v-for="row in 5" :key="'Number' + row">
             <div
                 class="col-sm-1"
                 v-for="number in 10"
-                :key="number + 10 * (row - 1)"
+                :key="'Number' + (number + 10 * (row - 1))"
             >
                 <app-number
                     :number="number + 10 * (row - 1)"
@@ -31,16 +28,23 @@
         </div>
         <br /><br />
         <!-- STARS -->
-        <div class="row">
-            <div class="col-sm-2" v-for="star in 12" :key="star">
+        <h2>Stars</h2>
+        <br />
+        <div class="row" v-for="row in 2" :key="'Star' + row">
+            <div
+                class="col-sm-1"
+                v-for="star in 6"
+                :key="'Star' + (star + 6 * (row - 1))"
+            >
                 <app-star
-                    :star="star"
-                    @click.native="processStar(star)"
+                    :star="star + 6 * (row - 1)"
+                    @click.native="processStar(star + 6 * (row - 1))"
                 ></app-star>
             </div>
         </div>
+        <br />
         <!-- SUBMIT -->
-        <div class="pull-right">
+        <div class="pull-left">
             <button
                 class="btn btn-info"
                 @click="saveGame"
@@ -76,8 +80,6 @@ export default {
     methods: {
         ...mapActions(["addGame"]),
         processNumber(number) {
-            console.log("Number: " + number);
-
             const index = this.numbers.indexOf(number);
 
             // Removing
@@ -98,8 +100,6 @@ export default {
             eventBus.$emit("numberClicked", number);
         },
         processStar(star) {
-            console.log("Star: " + star);
-
             const index = this.stars.indexOf(star);
 
             // Removing
@@ -132,10 +132,15 @@ export default {
 
             this.addGame(game);
 
+            // Prepare for next bet
+            this.resetBet();
+        },
+        resetBet() {
             this.numbers = [];
             this.stars = [];
             this.title = "";
             this.description = "";
+            eventBus.$emit("resetSelected");
         },
     },
     components: {

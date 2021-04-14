@@ -10,10 +10,10 @@
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <router-link to="/bet" activeClass="active" tag="li"
-                        ><a>Bet</a></router-link
+                        ><a>New Bet</a></router-link
                     >
                     <router-link to="/games" activeClass="active" tag="li"
-                        ><a>Games</a></router-link
+                        ><a>My Games</a></router-link
                     >
                 </ul>
             </div>

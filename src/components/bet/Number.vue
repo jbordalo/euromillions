@@ -19,6 +19,9 @@ export default {
 
             this.selected = !this.selected;
         });
+        eventBus.$on("resetSelected", () => {
+            this.selected = false;
+        });
     },
 };
 </script>
@@ -28,8 +31,9 @@ div {
     height: 50px;
     width: 50px;
     text-align: center;
-    border: 2px solid black;
-    background-color: rgb(253, 209, 216);
+    border: 1px solid black;
+    color: white;
+    background-color: rgb(120, 197, 248);
     margin-bottom: 5px;
 }
 
@@ -38,15 +42,15 @@ h1 {
 }
 
 div:hover {
-    background-color: rgb(248, 156, 171);
+    background-color: rgb(4, 154, 255);
 }
 
 .selected {
-    border: 2px solid red;
-    background-color: rgb(248, 156, 171);
+    border: 3px solid red;
+    background-color: rgb(4, 154, 255);
 }
 
 .selected:hover {
-    background-color: rgb(253, 209, 216);
+    background-color: rgb(120, 197, 248);
 }
 </style>

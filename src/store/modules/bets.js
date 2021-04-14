@@ -1,5 +1,5 @@
 const state = {
-	games: [{ title: 'My First Game', description: 'Test Game', numbers: [1, 2, 3, 4, 5], stars: [6, 7] }],
+	games: [],
 }
 
 const getters = {
