@@ -16,7 +16,7 @@
         <br />
         <div class="row" v-for="row in 5" :key="'Number' + row">
             <div
-                class="col-sm-1"
+                class="col-md-1 col-xs-4"
                 v-for="number in 10"
                 :key="'Number' + (number + 10 * (row - 1))"
             >
@@ -49,9 +49,9 @@
                 class="btn btn-info"
                 @click="saveGame"
                 :disabled="
-                    numbers.length != 5 ||
-                    stars.length != 2 ||
-                    this.title === ''
+                    numbers.length !== 5 ||
+                    stars.length !== 2 ||
+                    this.title.trim() === ''
                 "
             >
                 Submit

@@ -26,8 +26,6 @@
             >
                 {{ star }}
             </div>
-
-            <br />
         </div>
     </div>
 </template>
@@ -53,6 +51,7 @@ export default {
 h2 {
     margin-bottom: 5px;
 }
+
 h3 {
     margin-top: 5px;
 }
